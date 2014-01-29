@@ -17,7 +17,7 @@
         android:clickable="true"
         android:background="@drawable/status_selector"
         style="@style/text_content_style"
-        android:text="Click Me to Open SuperAdmin\n which allow you lock screen \nor format data remotely" />
+        android:text="Click Me to Active Admin" />
 
     <CheckBox
         android:id="@+id/cb_setup4_status"

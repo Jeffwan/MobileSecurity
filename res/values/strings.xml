@@ -12,5 +12,7 @@
     <string name="title_activity_setup3">Setup3Activity</string>
     <string name="title_activity_setup4">Setup4Activity</string>
     <string name="title_activity_base_setup">BaseSetupActivity</string>
+    <string name="device_admin_description">Active Me, then you can wipe date and lock screen remotely</string>
+    <string name="device_admin">MobileSecurity SuperAdmin</string>
 
 </resources>

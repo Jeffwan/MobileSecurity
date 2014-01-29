@@ -20,7 +20,7 @@ public class HomeAdapter extends BaseAdapter {
 		this.context = context;
 	}
 	
-	private String[] names = {"AntiTheft","Communication","SoftMgt", "TaskMgt",
+	private String[] names = {"AntiTheft","CallMgt","SoftMgt", "TaskMgt",
 			"NetMgt","AntiVirus","SysOptimize","ATools","Settings"}; 
 	
 	private int[] icons = {R.drawable.safe, R.drawable.callmsgsafe, R.drawable.app, 

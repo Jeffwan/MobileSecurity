@@ -19,8 +19,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="selectContact"
-        android:text="ChooseContact" />
+        android:text="ChooseContact"
+        android:onClick="selectContact"/>
 
     <LinearLayout
         android:layout_width="match_parent"

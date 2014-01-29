@@ -11,11 +11,12 @@
         android:text="After bingding SimCard:\n If SimCard changes \n It will send you Alert Message" />
 
     <TextView
+        android:id="@+id/tv_setup2_sim_click"
         android:onClick="bindSimCard"
         style="@style/text_content_style"
         android:background="@drawable/status_selector"
         android:clickable="true"
-        android:text="Click to Bind SimCard"
+        android:text="Click to Bind SIMCard"
         android:textColor="#0066ff" />
     
     <TextView
@@ -23,7 +24,7 @@
         style="@style/text_content_style"
         android:textSize="12sp"
         android:background="@drawable/status_selector"
-        android:text="SimCard Identification Number:"
+        android:text="SimCard Number:"
         android:textColor="#99000000" />
 
     <LinearLayout
