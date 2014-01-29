@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pitt="http://schemas.android.com/apk/res/edu.pitt.mobilesecurity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+	<edu.pitt.mobilesecurity.ui.SettingView
+	    android:id="@+id/sv_setting_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		pitt:title="automatic update setting"
+        pitt:content_on="automatic update on"
+        pitt:content_off="automatic update off">
+	</edu.pitt.mobilesecurity.ui.SettingView>
+
+</LinearLayout>

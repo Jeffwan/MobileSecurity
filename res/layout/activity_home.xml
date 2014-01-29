@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:orientation="vertical"
+    tools:context=".HomeActivity" >
+
+    
+    <edu.pitt.mobilesecurity.ui.FocusedTextView 
+        android:ellipsize="marquee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="I am your security guide, please use me !! I am protect you. hohoohohohohoho" 
+        />
+    
+	<GridView
+        android:id="@+id/gv_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dip"
+        android:numColumns="3"
+        android:verticalSpacing="10dip" >
+    </GridView>
+
+</LinearLayout>

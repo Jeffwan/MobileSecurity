@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Setup1Activity" >
+
+    <TextView
+        style="@style/text_content_style"
+        android:text="SIM Changed:\nAlert Message will send to this security number" />
+
+    <EditText
+        android:id="@+id/et_setup3_safenumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Please choose a contact" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="selectContact"
+        android:text="ChooseContact" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="24dip"
+            android:layout_height="24dip"
+            android:src="@drawable/btn_circle_normal" />
+
+        <ImageView
+            android:layout_width="24dip"
+            android:layout_height="24dip"
+            android:src="@drawable/btn_circle_normal" />
+
+        <ImageView
+            android:layout_width="24dip"
+            android:layout_height="24dip"
+            android:src="@drawable/btn_circle_selected" />
+
+        <ImageView
+            android:layout_width="24dip"
+            android:layout_height="24dip"
+            android:src="@drawable/btn_circle_normal" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/phone" />
+
+        <Button style="@style/button_pre_style" />
+
+        <Button style="@style/button_next_style" />
+    </RelativeLayout>
+
+</LinearLayout>

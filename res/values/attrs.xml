@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    	<!--mock system, implement a custom attrs -->
+    <declare-styleable name="setting_view">
+        <attr name="title" format="string" />
+        <attr name="content_on" format="string"></attr>
+        <attr name="content_off" format="string"></attr>
+    </declare-styleable>
+</resources>

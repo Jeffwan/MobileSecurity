@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dip" >
+
+    <TextView
+        android:id="@+id/tv_setting_view_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dip"
+        android:layout_marginTop="10dp"
+        android:text="Set Title"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+         android:id="@+id/tv_setting_view_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tv_setting_view_title"
+        android:layout_marginLeft="8dip"
+        android:layout_marginTop="3dp"
+        android:text="Set Description"
+        android:textColor="#88000000" />
+
+    <CheckBox
+        android:focusable="false"
+        android:clickable="false"
+        android:id="@+id/cb_setting_view_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true" />
+
+    <View
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/listview_devider"
+        android:layout_width="fill_parent"
+        android:layout_height="1dip" >
+    </View>
+
+</RelativeLayout>

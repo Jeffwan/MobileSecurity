@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MobileSecurity</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_anti_theft">AntiTheftActivity</string>
+    <string name="title_activity_setup1">Setup1Activity</string>
+    <string name="title_activity_setup2">Setup2Activity</string>
+    <string name="title_activity_setup3">Setup3Activity</string>
+    <string name="title_activity_setup4">Setup4Activity</string>
+    <string name="title_activity_base_setup">BaseSetupActivity</string>
+
+</resources>
