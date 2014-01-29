@@ -13,6 +13,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 
 import edu.pitt.mobilesecurity.domain.UpdateInfo;
 import edu.pitt.mobilesecurity.engine.UpdateInfoParser;
+import edu.pitt.mobilesecurity.utils.CopyAssetsFile;
 import edu.pitt.mobilesecurity.utils.DownloadManager;
 
 import android.net.Uri;
@@ -122,8 +123,7 @@ public class SplashActivity extends Activity {
 		// Set AlphaAnimation of SplashActivity -- should move to resource file!
 		AlphaAnimation aa = new AlphaAnimation(0.2f, 1.0f);
 		aa.setDuration(2000);
-		findViewById(R.id.rl_splash).setAnimation(aa);
-		
+		findViewById(R.id.rl_splash).setAnimation(aa);		
 		
 		pManager = this.getPackageManager();
 		tv_splash_activity = (TextView) findViewById(R.id.tv_splash_version);
@@ -134,6 +134,28 @@ public class SplashActivity extends Activity {
 		// Check version info on Server
 		new Thread(new CheckVersionTask()).start();
 		
+		
+		// Load Address Database for phone number query
+		
+		//getFilesDir -- Returns the absolute path to the directory on the filesystem where files 
+		//created with openFileOutput(String, int) are stored.
+		// Constructs a new File using the specified directory path and file name, placing a path separator between the two.
+		final File addressDBFile = new File(this.getFilesDir(), "address.db");
+		if (addressDBFile.exists() && addressDBFile.length() > 0) {
+			Log.i(TAG, "Address DB File loaded");
+		} else {
+			Log.i(TAG, "Load Address DB File now!");
+			// use Thread to load this file
+			new Thread(){
+				public void run() {
+					File file = CopyAssetsFile.copyAssetsFile(SplashActivity.this, "address.db", addressDBFile.getAbsolutePath());
+					if (file!=null) {
+						Log.i(TAG, "Load successfully!");
+					} else 
+						Log.i(TAG, "Load failed!");
+				};
+			}.start();
+		}
 	}
 	
 	
@@ -291,6 +313,7 @@ public class SplashActivity extends Activity {
 		finish(); 
 	}
 
+	
 	
 
 }

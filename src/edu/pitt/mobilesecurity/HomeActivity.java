@@ -41,6 +41,7 @@ public class HomeActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position,
 					long id) {
+				Intent intent;
 				switch (position) {
 				case 0:
 					if(isSetupPassword()) {
@@ -52,9 +53,15 @@ public class HomeActivity extends Activity {
 					}
 					break;
 					
-				case 8:
-					Intent intent = new Intent(HomeActivity.this,SettingActivity.class);
+				case 7:
+					intent = new Intent(HomeActivity.this, AtoolsActivity.class);
 					startActivity(intent);
+					break;
+					
+				case 8:
+					intent = new Intent(HomeActivity.this,SettingActivity.class);
+					startActivity(intent);
+					break;
 				}
 				
 			}

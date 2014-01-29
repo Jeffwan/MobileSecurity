@@ -13,5 +13,56 @@
         pitt:content_on="automatic update on"
         pitt:content_off="automatic update off">
 	</edu.pitt.mobilesecurity.ui.SettingView>
+	
+	<edu.pitt.mobilesecurity.ui.SettingView
+	    android:id="@+id/sv_setting_show_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		pitt:title="Show Address setting"
+        pitt:content_on="Show Address on"
+        pitt:content_off="Show Address off">
+	</edu.pitt.mobilesecurity.ui.SettingView>
+	
+	<RelativeLayout
+        android:id="@+id/rl_setting_change_bg"
+        android:layout_width="match_parent"
+        android:layout_height="60dip" >
+
+        <TextView
+            android:id="@+id/tv_setting_address_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dip"
+            android:layout_marginTop="10dp"
+            android:text="Change Location Style"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_setting_address_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tv_setting_address_style"
+            android:layout_marginLeft="8dip"
+            android:layout_marginTop="3dp"
+            android:text="Transparent"
+            android:textColor="#88000000" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_go_search_api_holo_light" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/listview_devider" >
+        </View>
+    </RelativeLayout>
+	
 
 </LinearLayout>
