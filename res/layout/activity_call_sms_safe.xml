@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="BlackNumberList"
+            android:textColor="#0066ff"
+            android:textSize="18sp" />
+        
+        <Button
+            android:onClick="addBlackNumber"
+            android:layout_width="40dip"
+            android:layout_height="20dip"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button_selector"
+            android:paddingTop="5dip"
+            android:text="Add"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_callsms_safe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </ListView>
+
+</LinearLayout>

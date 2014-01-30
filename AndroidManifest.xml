@@ -17,17 +17,25 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- UnitTest -->
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="edu.pitt.mobilesecurity" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        
+
+        <!-- UnitTest -->
+        <uses-library android:name="android.test.runner" />
+
         <!-- Activity -->
         <activity
             android:name="edu.pitt.mobilesecurity.SplashActivity"
@@ -79,20 +87,18 @@
             android:name="edu.pitt.mobilesecurity.NumberQueryActivity"
             android:label="@string/title_activity_number_query" >
         </activity>
-        
+
         <!-- Broadcast Receiver -->
         <receiver android:name="edu.pitt.mobilesecurity.receiver.BootCompleteReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        
         <receiver android:name="edu.pitt.mobilesecurity.receiver.SmsReceiver" >
             <intent-filter android:priority="1000" >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-        
         <receiver
             android:name="edu.pitt.mobilesecurity.receiver.SuperAdminReceiver"
             android:description="@string/device_admin_description"
@@ -106,13 +112,15 @@
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
-	
-        <!-- Service -->
-        <service android:name =".service.ShowAddressService">
-        </service>
-        
-        
 
+        <!-- Service -->
+        <service android:name="edu.pitt.mobilesecurity.service.ShowAddressService" >
+        </service>
+
+        <activity
+            android:name="edu.pitt.mobilesecurity.CallSmsSafeActivity"
+            android:label="@string/title_activity_call_sms_safe" >
+        </activity>
     </application>
 
 </manifest>

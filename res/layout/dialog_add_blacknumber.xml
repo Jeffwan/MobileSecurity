@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dip"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:background="#880066ff"
+        android:gravity="center_horizontal"
+        android:text="Add Black List Number"
+        android:textColor="#000000"
+        android:textSize="23sp" />
+
+    <EditText
+        android:id="@+id/et_black_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone" >
+    </EditText>
+
+    <RadioGroup
+        android:id="@+id/rg_mode"
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rb_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="All"
+            android:textColor="#000000" />
+
+        <RadioButton
+            android:id="@+id/rb_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            android:textColor="#000000" />
+
+        <RadioButton
+            android:id="@+id/rb_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Msg"
+            android:textColor="#000000" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/bt_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancel"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/bt_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:layout_weight="1"
+            android:text="OK"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+</LinearLayout>

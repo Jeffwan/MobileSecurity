@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <!-- the corner circle or sharp -->
+    <corners
+        android:radius="10dip">
+    </corners>
+
+    <!-- color changed steply - conflick with solid tag -->
+    <gradient
+        android:startColor="#660000ff"
+        android:endColor="#220000ff">
+    </gradient>
+    
+    <!-- internal padding(like text) of this button  -->
+    <padding
+        android:left="2dip"
+        android:top="2dip"
+        android:right="2dip"
+        android:bottom="2dip">
+    </padding>
+    
+    <!-- border -->
+    <stroke 
+        android:width="0.1dip" 
+        android:color="#88000000">
+    </stroke>
+</shape>

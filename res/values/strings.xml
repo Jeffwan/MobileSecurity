@@ -16,5 +16,6 @@
     <string name="device_admin">MobileSecurity SuperAdmin</string>
     <string name="title_activity_atools">AtoolsActivity</string>
     <string name="title_activity_number_query">NumberQueryActivity</string>
+    <string name="title_activity_call_sms_safe">CallSmsSafeActivity</string>
 
 </resources>
