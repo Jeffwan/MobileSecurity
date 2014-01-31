@@ -46,6 +46,7 @@ public class BlackNumberDao {
 		if (cursor.moveToNext()) {
 			result = true;
 		} 
+		cursor.close();
 		db.close();
 		return result;
 	}
@@ -84,10 +85,22 @@ public class BlackNumberDao {
 			String mode = cursor.getString(1);
 			blackNumberInfos.add(new BlackNumberInfo(number, mode));
 		}
+		cursor.close();
 		db.close();
 		return blackNumberInfos;
 	}
 	
+	public String findMode(String number) {
+		String result = null;
+		SQLiteDatabase db = helper.getReadableDatabase();
+		Cursor cursor = db.rawQuery("select mode from blacknumber where number=?", new String[]{number});
+		if (cursor.moveToNext()) {
+			result = cursor.getString(0);
+		}
+		cursor.close();
+		db.close();
+		return result;
+	}
 	
 	
 	

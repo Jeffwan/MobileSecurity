@@ -1,5 +1,6 @@
 package edu.pitt.mobilesecurity;
 
+import edu.pitt.mobilesecurity.service.CallSmsFirewallService;
 import edu.pitt.mobilesecurity.service.ShowAddressService;
 import edu.pitt.mobilesecurity.ui.SettingView;
 import edu.pitt.mobilesecurity.utils.ServiceStatusUtils;
@@ -30,6 +31,10 @@ public class SettingActivity extends Activity {
 	private RelativeLayout rl_setting_change_bg;
 	private TextView tv_setting_address_bg;
 	private static final String[] items = {"Transparent", "Orange", "Blue", "Green", "Grey"};
+	
+	// 4. CallSms Firewall
+	private SettingView sv_setting_firewall;
+	private Intent fireWallIntent;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +93,25 @@ public class SettingActivity extends Activity {
 			}
 		});
 		
+		// 4. Initial CallSmsFireWall 
+		sv_setting_firewall = (SettingView) findViewById(R.id.sv_setting_firewall);
+		fireWallIntent = new Intent(this, CallSmsFirewallService.class);
+		sv_setting_firewall.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View view) {
+				if (sv_setting_firewall.isChecked()) {
+					stopService(fireWallIntent);
+					sv_setting_firewall.setChecked(false);
+				} else {
+					startService(fireWallIntent);
+					sv_setting_firewall.setChecked(true);
+				}
+				
+			}
+		});
+		
+		
 	}
 	
 	
@@ -122,6 +146,7 @@ public class SettingActivity extends Activity {
 	@Override
 	protected void onStart() {
 		sv_setting_show_address.setChecked(ServiceStatusUtils.isServiceRunning(this, ShowAddressService.class));
+		sv_setting_firewall.setChecked(ServiceStatusUtils.isServiceRunning(this, CallSmsFirewallService.class));
 		super.onStart();
 	}
 

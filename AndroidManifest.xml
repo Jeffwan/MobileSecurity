@@ -26,6 +26,9 @@
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="edu.pitt.mobilesecurity" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
 
     <application
         android:allowBackup="true"
@@ -115,6 +118,8 @@
 
         <!-- Service -->
         <service android:name="edu.pitt.mobilesecurity.service.ShowAddressService" >
+        </service>
+        <service android:name="edu.pitt.mobilesecurity.service.CallSmsFirewallService" >
         </service>
 
         <activity

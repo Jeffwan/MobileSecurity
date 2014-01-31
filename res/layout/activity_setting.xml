@@ -9,7 +9,7 @@
 	    android:id="@+id/sv_setting_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-		pitt:title="automatic update setting"
+		pitt:title="Automatic Update Setting"
         pitt:content_on="automatic update on"
         pitt:content_off="automatic update off">
 	</edu.pitt.mobilesecurity.ui.SettingView>
@@ -18,7 +18,7 @@
 	    android:id="@+id/sv_setting_show_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-		pitt:title="Show Address setting"
+		pitt:title="Show Address Setting"
         pitt:content_on="Show Address on"
         pitt:content_off="Show Address off">
 	</edu.pitt.mobilesecurity.ui.SettingView>
@@ -63,6 +63,14 @@
             android:background="@drawable/listview_devider" >
         </View>
     </RelativeLayout>
-	
-
+    
+    <edu.pitt.mobilesecurity.ui.SettingView
+        android:id="@+id/sv_setting_firewall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        pitt:content_off="Block Firewall off"
+        pitt:content_on="Block Firewall on"
+        pitt:title="Block Firewall Setting" >
+    </edu.pitt.mobilesecurity.ui.SettingView>
+    
 </LinearLayout>
