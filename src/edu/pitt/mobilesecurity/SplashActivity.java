@@ -28,11 +28,14 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources.NotFoundException;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.Menu;
 import android.view.animation.AlphaAnimation;
@@ -60,6 +63,7 @@ public class SplashActivity extends Activity {
 	private PackageManager pManager;
 	private UpdateInfo updateInfo;
 	private ProgressDialog progressDialog;
+	private SharedPreferences mSharedPreferences;
 	
 	
 	private Handler handler = new Handler(){
@@ -119,6 +123,28 @@ public class SplashActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
+		// ShortCut Configuration
+		mSharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
+		Boolean shortcut = mSharedPreferences.getBoolean("shortcut", false);
+		if (!shortcut) {
+			// create shortcut first time
+			// 1. forwarding to 
+			Intent shortcutIntent = new Intent();
+			shortcutIntent.setAction("edu.pitt.mobilesecurity.home");
+			shortcutIntent.addCategory(Intent.CATEGORY_DEFAULT);
+			
+			// 2. shortcut
+			Intent intent = new Intent();
+			intent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
+			intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, "MobileSecurity");
+			intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
+			intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher));
+			sendBroadcast(intent);
+			Editor editor = mSharedPreferences.edit();
+			editor.putBoolean("shortcut", true);
+			editor.commit();
+		}
+		
 		
 		// Set AlphaAnimation of SplashActivity -- should move to resource file!
 		AlphaAnimation aa = new AlphaAnimation(0.2f, 1.0f);

@@ -4,24 +4,70 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <LinearLayout
-        android:background="@drawable/status_selector"
-        android:id="@+id/ll_atools_number_query"
-        android:layout_marginTop="10dip"
-        android:layout_marginLeft="4dip"
+    <TextView
+        android:id="@+id/tv_progress"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:text="Backup Status..." />
+
+    <LinearLayout
+        android:id="@+id/ll_atools_number_query"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dip"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/status_selector"
         android:orientation="horizontal" >
 
         <ImageView
-            android:layout_marginTop="2dip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dip"
             android:src="@drawable/ic_menu_compass" />
 
         <TextView
             style="@style/text_content_style"
             android:text="Check Number Location" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_atools_sms_backup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dip"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/status_selector"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dip"
+            android:src="@drawable/ic_menu_compass" />
+
+        <TextView
+            style="@style/text_content_style"
+            android:text="Message Backup" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_atools_sms_restore"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dip"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/status_selector"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dip"
+            android:src="@drawable/ic_menu_compass" />
+
+        <TextView
+            style="@style/text_content_style"
+            android:text="Message Restore" />
     </LinearLayout>
 
 </LinearLayout>

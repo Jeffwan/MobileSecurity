@@ -4,7 +4,12 @@ import java.lang.reflect.Method;
 
 import com.android.internal.telephony.ITelephony;
 
+import edu.pitt.mobilesecurity.CallSmsSafeActivity;
+import edu.pitt.mobilesecurity.R;
 import edu.pitt.mobilesecurity.db.dao.BlackNumberDao;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -87,13 +92,14 @@ public class CallSmsFirewallService extends Service {
 	
 	
 	private class PhoneListener extends PhoneStateListener {
-		
+		long startTime = 0;
 		@Override
 		public void onCallStateChanged(int state, String incomingNumber) {
 			
 			switch (state) {
 			case TelephonyManager.CALL_STATE_RINGING:
 				Log.i(TAG, "Phone is comming");
+				startTime = System.currentTimeMillis();
 				String mode = dao.findMode(incomingNumber);
 				if ("1".equals(mode) || "2".equals(mode)) {
 					Log.i(TAG, "Block this number");
@@ -104,7 +110,14 @@ public class CallSmsFirewallService extends Service {
 				}
 							
 				break;
-
+			
+			case TelephonyManager.CALL_STATE_IDLE:
+				long endTime = System.currentTimeMillis();
+				if (endTime - startTime > 2000) {
+					showNotification(incomingNumber);
+				}
+				break;
+				
 			default:
 				break;
 			}
@@ -140,6 +153,24 @@ public class CallSmsFirewallService extends Service {
 		super.onDestroy();
 		this.unregisterReceiver(comeSmsReceiver);
 		comeSmsReceiver = null;
+		
+	}
+
+	public void showNotification(String incomingNumber) {
+		// 1. create Notification Manger
+		NotificationManager mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+		
+		// 2. create Notification object
+		Notification notification = new Notification(R.drawable.notification, "Find suspicious number", System.currentTimeMillis());
+		
+		// 3. configure notification
+		notification.flags = Notification.FLAG_AUTO_CANCEL;
+		Intent intent = new Intent(this, CallSmsSafeActivity.class);
+		PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+		notification.setLatestEventInfo(this, "Hint: Suspicious Number", "Number: " + incomingNumber, contentIntent);
+		
+		// 4. popup notification
+		mNotificationManager.notify(0, notification);
 		
 	}
 

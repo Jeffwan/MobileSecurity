@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -35,12 +36,23 @@ public class CallSmsSafeActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		// Handle sceniro actived by notification
+		Intent intent = getIntent();
+		if (intent != null) {
+			String number = intent.getStringExtra("number");
+			if (!TextUtils.isEmpty(number)) {
+				Toast.makeText(getApplicationContext(), "block number: " + number, 1).show();
+			}
+		}
+		
 		setContentView(R.layout.activity_call_sms_safe);
 		lv_callsms_safe = (ListView) findViewById(R.id.lv_callsms_safe);
 		dao = new BlackNumberDao(this);
 		blackNumberInfos = dao.findAll();
 		callSmsSafeAdapter = new CallSmsSafeAdapter();
 		lv_callsms_safe.setAdapter(callSmsSafeAdapter);
+		
 		
 	}
 
@@ -184,4 +196,18 @@ public class CallSmsSafeActivity extends Activity {
 		dialog = builder.show();
 	}
 
+	@Override
+	protected void onNewIntent(Intent intent) {
+		String number = intent.getStringExtra("number");
+		if (!TextUtils.isEmpty(number)) {
+			Toast.makeText(getApplicationContext(), "onNewIntent+ block number: " + number, 1).show();
+		}
+
+		super.onNewIntent(intent);
+	}
+
+	
+	
+	
+	
 }
