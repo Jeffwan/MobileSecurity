@@ -17,5 +17,6 @@
     <string name="title_activity_atools">AtoolsActivity</string>
     <string name="title_activity_number_query">NumberQueryActivity</string>
     <string name="title_activity_call_sms_safe">CallSmsSafeActivity</string>
+    <string name="title_activity_app_manager">AppManagerActivity</string>
 
 </resources>

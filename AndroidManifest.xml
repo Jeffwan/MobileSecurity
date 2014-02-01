@@ -21,18 +21,17 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-	<uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
-    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
-    <uses-permission android:name="android.permission.READ_SMS"/>
-    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
 
     <!-- UnitTest -->
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="edu.pitt.mobilesecurity" />
-
 
     <application
         android:allowBackup="true"
@@ -58,9 +57,10 @@
             android:name="edu.pitt.mobilesecurity.HomeActivity"
             android:label="@string/title_activity_home" >
             <intent-filter>
-                <action android:name="edu.pitt.mobilesecurity.home">
-                </action >
-                <category android:name="android.intent.category.DEFAULT">
+                <action android:name="edu.pitt.mobilesecurity.home" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
                 </category>
             </intent-filter>
         </activity>
@@ -133,9 +133,13 @@
         </service>
 
         <activity
-            android:launchMode="singleTop"
             android:name="edu.pitt.mobilesecurity.CallSmsSafeActivity"
-            android:label="@string/title_activity_call_sms_safe" >
+            android:label="@string/title_activity_call_sms_safe"
+            android:launchMode="singleTop" >
+        </activity>
+        <activity
+            android:name="edu.pitt.mobilesecurity.AppManagerActivity"
+            android:label="@string/title_activity_app_manager" >
         </activity>
     </application>
 
