@@ -1,5 +1,6 @@
 package edu.pitt.mobilesecurity;
 
+import edu.pitt.mobilesecurity.service.AutoKillService;
 import edu.pitt.mobilesecurity.service.CallSmsFirewallService;
 import edu.pitt.mobilesecurity.service.ShowAddressService;
 import edu.pitt.mobilesecurity.ui.SettingView;
@@ -12,6 +13,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,6 +37,15 @@ public class SettingActivity extends Activity {
 	// 4. CallSms Firewall
 	private SettingView sv_setting_firewall;
 	private Intent fireWallIntent;
+	
+	// 5. TaskManager
+	private SettingView sv_setting_show_system_task;
+	
+	// 6. AutoKillTask
+	private SettingView sv_setting_auto_kill;
+	private Intent autoKillIntent;
+	
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +123,45 @@ public class SettingActivity extends Activity {
 		});
 		
 		
+		// 5. Initial system tasks show
+		sv_setting_show_system_task = (SettingView) findViewById(R.id.sv_setting_show_system_task);
+		boolean showSystem = mSharedPreferences.getBoolean("showSystem", true);
+		sv_setting_show_system_task.setChecked(showSystem);
+		sv_setting_show_system_task.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Editor editor = mSharedPreferences.edit();
+				if (sv_setting_show_system_task.isChecked()) {
+					editor.putBoolean("showSystem", false);
+					sv_setting_show_system_task.setChecked(false);
+				} else {
+					editor.putBoolean("showSystem", true);
+					sv_setting_show_system_task.setChecked(true);
+				}
+				editor.commit();
+			}
+		});
+		
+		
+		// 6. Kill Task after lock screen
+		sv_setting_auto_kill = (SettingView) findViewById(R.id.sv_setting_auto_kill);
+		autoKillIntent = new Intent(this,AutoKillService.class);
+		sv_setting_auto_kill.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(sv_setting_auto_kill.isChecked()){
+					sv_setting_auto_kill.setChecked(false);
+					stopService(autoKillIntent);
+				}else{
+					sv_setting_auto_kill.setChecked(true);
+					startService(autoKillIntent);
+				}
+			}
+		});
+		
 	}
+	
 	
 	
 	protected void showChangeBgDialog() {
@@ -147,6 +196,7 @@ public class SettingActivity extends Activity {
 	protected void onStart() {
 		sv_setting_show_address.setChecked(ServiceStatusUtils.isServiceRunning(this, ShowAddressService.class));
 		sv_setting_firewall.setChecked(ServiceStatusUtils.isServiceRunning(this, CallSmsFirewallService.class));
+		sv_setting_auto_kill.setChecked(ServiceStatusUtils.isServiceRunning(this, AutoKillService.class));
 		super.onStart();
 	}
 

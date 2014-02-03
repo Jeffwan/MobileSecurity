@@ -63,6 +63,16 @@ public class HomeActivity extends Activity {
 					startActivity(intent);
 					break;
 					
+				case 3:
+					intent = new Intent(HomeActivity.this, TaskManagerActivity.class);
+					startActivity(intent);
+					break;
+					
+				case 4:
+					intent = new Intent(HomeActivity.this, TrafficManagerActivity.class);
+					startActivity(intent);
+					break;
+					
 				case 7:
 					intent = new Intent(HomeActivity.this, AtoolsActivity.class);
 					startActivity(intent);

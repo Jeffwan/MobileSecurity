@@ -5,25 +5,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-	<edu.pitt.mobilesecurity.ui.SettingView
-	    android:id="@+id/sv_setting_update"
+    <edu.pitt.mobilesecurity.ui.SettingView
+        android:id="@+id/sv_setting_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-		pitt:title="Automatic Update Setting"
+        pitt:content_off="automatic update off"
         pitt:content_on="automatic update on"
-        pitt:content_off="automatic update off">
-	</edu.pitt.mobilesecurity.ui.SettingView>
-	
-	<edu.pitt.mobilesecurity.ui.SettingView
-	    android:id="@+id/sv_setting_show_address"
+        pitt:title="Automatic Update Setting" >
+    </edu.pitt.mobilesecurity.ui.SettingView>
+
+    <edu.pitt.mobilesecurity.ui.SettingView
+        android:id="@+id/sv_setting_show_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-		pitt:title="Show Address Setting"
+        pitt:content_off="Show Address off"
         pitt:content_on="Show Address on"
-        pitt:content_off="Show Address off">
-	</edu.pitt.mobilesecurity.ui.SettingView>
-	
-	<RelativeLayout
+        pitt:title="Show Address Setting" >
+    </edu.pitt.mobilesecurity.ui.SettingView>
+
+    <RelativeLayout
         android:id="@+id/rl_setting_change_bg"
         android:layout_width="match_parent"
         android:layout_height="60dip" >
@@ -63,7 +63,7 @@
             android:background="@drawable/listview_devider" >
         </View>
     </RelativeLayout>
-    
+
     <edu.pitt.mobilesecurity.ui.SettingView
         android:id="@+id/sv_setting_firewall"
         android:layout_width="match_parent"
@@ -72,5 +72,23 @@
         pitt:content_on="Block Firewall on"
         pitt:title="Block Firewall Setting" >
     </edu.pitt.mobilesecurity.ui.SettingView>
-    
+
+    <edu.pitt.mobilesecurity.ui.SettingView
+        android:id="@+id/sv_setting_show_system_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        pitt:content_off="System Process off"
+        pitt:content_on="System Process on"
+        pitt:title="TaskManager Setting" >
+    </edu.pitt.mobilesecurity.ui.SettingView>
+
+    <edu.pitt.mobilesecurity.ui.SettingView
+        android:id="@+id/sv_setting_auto_kill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        pitt:content_off="Not Clean"
+        pitt:content_on="Auto Clean"
+        pitt:title="Clean Memory After Lock">
+    </edu.pitt.mobilesecurity.ui.SettingView>
+
 </LinearLayout>

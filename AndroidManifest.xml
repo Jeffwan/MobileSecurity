@@ -33,6 +33,8 @@
         android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="edu.pitt.mobilesecurity" />
 
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -125,11 +127,18 @@
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".receiver.AutoKillReceiver" >
+            <intent-filter>
+                <action android:name="com.itheima.killall" />
+            </intent-filter>
+        </receiver>
 
         <!-- Service -->
         <service android:name="edu.pitt.mobilesecurity.service.ShowAddressService" >
         </service>
         <service android:name="edu.pitt.mobilesecurity.service.CallSmsFirewallService" >
+        </service>
+        <service android:name="edu.pitt.mobilesecurity.service.AutoKillService" >
         </service>
 
         <activity
@@ -140,6 +149,14 @@
         <activity
             android:name="edu.pitt.mobilesecurity.AppManagerActivity"
             android:label="@string/title_activity_app_manager" >
+        </activity>
+        <activity
+            android:name="edu.pitt.mobilesecurity.TaskManagerActivity"
+            android:label="@string/title_activity_task_manager" >
+        </activity>
+        <activity
+            android:name="edu.pitt.mobilesecurity.TrafficManagerActivity"
+            android:label="@string/title_activity_traffic_manager" >
         </activity>
     </application>
 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#33ffffff"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/iv_taskmanger_icon"
+        android:layout_width="48dip"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="10dip"
+        android:layout_height="48dip"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:layout_marginTop="10dip"
+        android:id="@+id/tv_taskmanager_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/iv_taskmanger_icon"
+        android:text="AppName"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/tv_taskmanager_mem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_taskmanager_name"
+        android:layout_below="@+id/tv_taskmanager_name"
+        android:text="Memory"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#88000000" />
+
+    <CheckBox
+        android:clickable="false"
+        android:focusable="false"
+        android:id="@+id/cb_taskmanager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+         />
+   
+</RelativeLayout>
