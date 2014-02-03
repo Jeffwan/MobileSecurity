@@ -20,5 +20,7 @@
     <string name="title_activity_app_manager">AppManagerActivity</string>
     <string name="title_activity_task_manager">TaskManagerActivity</string>
     <string name="title_activity_traffic_manager">TrafficManagerActivity</string>
+    <string name="title_activity_app_lock">AppLockActivity</string>
+    <string name="title_activity_enter_password">EnterPasswordActivity</string>
 
 </resources>

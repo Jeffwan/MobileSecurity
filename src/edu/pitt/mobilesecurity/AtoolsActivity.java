@@ -25,6 +25,8 @@ public class AtoolsActivity extends Activity implements OnClickListener {
 	private TextView tv_progress;
 	private ProgressDialog mProgressDialog;
 	
+	private LinearLayout ll_atools_applock;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,6 +39,10 @@ public class AtoolsActivity extends Activity implements OnClickListener {
 		ll_atools_number_query.setOnClickListener(this);
 		ll_atools_sms_backup.setOnClickListener(this);
 		ll_atools_sms_restore.setOnClickListener(this);
+		
+		
+		ll_atools_applock = (LinearLayout) findViewById(R.id.ll_atools_applock);
+		ll_atools_applock.setOnClickListener(this);
 	}
 	
 	
@@ -141,8 +147,11 @@ public class AtoolsActivity extends Activity implements OnClickListener {
 			builder.show();
 			break;
 			
-		default:
+		case R.id.ll_atools_applock:
+			intent = new Intent(this,AppLockActivity.class);
+			startActivity(intent);
 			break;
+			
 		}
 	}
 

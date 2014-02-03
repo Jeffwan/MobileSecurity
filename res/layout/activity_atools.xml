@@ -70,4 +70,24 @@
             android:text="Message Restore" />
     </LinearLayout>
 
+    <LinearLayout
+        android:background="@drawable/status_selector"
+        android:id="@+id/ll_atools_applock"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="4dip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_marginTop="2dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_compass" />
+
+        <TextView
+            style="@style/text_content_style"
+            android:text="AppLock" />
+    </LinearLayout>
+    
 </LinearLayout>

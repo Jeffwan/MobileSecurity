@@ -34,6 +34,7 @@
         android:targetPackage="edu.pitt.mobilesecurity" />
 
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.GET_TASKS"/>
 
     <application
         android:allowBackup="true"
@@ -127,7 +128,7 @@
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".receiver.AutoKillReceiver" >
+        <receiver android:name="edu.pitt.mobilesecurity.receiver.AutoKillReceiver" >
             <intent-filter>
                 <action android:name="com.itheima.killall" />
             </intent-filter>
@@ -139,6 +140,9 @@
         <service android:name="edu.pitt.mobilesecurity.service.CallSmsFirewallService" >
         </service>
         <service android:name="edu.pitt.mobilesecurity.service.AutoKillService" >
+        </service>
+        <service android:name="edu.pitt.mobilesecurity.service.WatchDogService">
+            
         </service>
 
         <activity
@@ -157,6 +161,15 @@
         <activity
             android:name="edu.pitt.mobilesecurity.TrafficManagerActivity"
             android:label="@string/title_activity_traffic_manager" >
+        </activity>
+        <activity
+            android:name="edu.pitt.mobilesecurity.AppLockActivity"
+            android:label="@string/title_activity_app_lock" >
+        </activity>
+        <activity
+            android:name="edu.pitt.mobilesecurity.EnterPasswordActivity"
+            android:launchMode="singleInstance"
+            android:label="Please Input Password">
         </activity>
     </application>
 

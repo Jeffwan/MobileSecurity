@@ -90,5 +90,15 @@
         pitt:content_on="Auto Clean"
         pitt:title="Clean Memory After Lock">
     </edu.pitt.mobilesecurity.ui.SettingView>
+    
+    
+    <edu.pitt.mobilesecurity.ui.SettingView
+        android:id="@+id/sv_setting_applock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        pitt:content_off="App Lock Off"
+        pitt:content_on="App Lock On"
+        pitt:title="App Lock Setting">
+    </edu.pitt.mobilesecurity.ui.SettingView>
 
 </LinearLayout>

@@ -3,6 +3,7 @@ package edu.pitt.mobilesecurity;
 import edu.pitt.mobilesecurity.service.AutoKillService;
 import edu.pitt.mobilesecurity.service.CallSmsFirewallService;
 import edu.pitt.mobilesecurity.service.ShowAddressService;
+import edu.pitt.mobilesecurity.service.WatchDogService;
 import edu.pitt.mobilesecurity.ui.SettingView;
 import edu.pitt.mobilesecurity.utils.ServiceStatusUtils;
 import android.os.Bundle;
@@ -45,6 +46,9 @@ public class SettingActivity extends Activity {
 	private SettingView sv_setting_auto_kill;
 	private Intent autoKillIntent;
 	
+	// 7. App Lock
+	private SettingView sv_setting_applock;
+	private Intent watchDogService;
 	
 	
 	@Override
@@ -160,6 +164,25 @@ public class SettingActivity extends Activity {
 			}
 		});
 		
+		// 7. App Lock
+		sv_setting_applock = (SettingView) findViewById(R.id.sv_setting_applock);
+		watchDogService = new Intent(this,WatchDogService.class);
+		sv_setting_applock.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				//TODO:ÔÚ·þÎñÀïÃæ¿ªÆô¹Ø±Õ ËøÆÁµÄ¹ã²¥½ÓÊÕÕß
+				if(sv_setting_applock.isChecked()){
+					sv_setting_applock.setChecked(false);
+					stopService(watchDogService);
+				}else{
+					sv_setting_applock.setChecked(true);
+					startService(watchDogService);
+				}
+			}
+		});
+		
+		
 	}
 	
 	
@@ -197,6 +220,7 @@ public class SettingActivity extends Activity {
 		sv_setting_show_address.setChecked(ServiceStatusUtils.isServiceRunning(this, ShowAddressService.class));
 		sv_setting_firewall.setChecked(ServiceStatusUtils.isServiceRunning(this, CallSmsFirewallService.class));
 		sv_setting_auto_kill.setChecked(ServiceStatusUtils.isServiceRunning(this, AutoKillService.class));
+		sv_setting_applock.setChecked(ServiceStatusUtils.isServiceRunning(this, WatchDogService.class));
 		super.onStart();
 	}
 
