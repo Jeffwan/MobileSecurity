@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dip"
+        android:background="#3185A3"
+        android:gravity="center"
+        android:text="AntiVirus"
+        android:textColor="#B3EBFF"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <FrameLayout
+            android:layout_width="80dip"
+            android:layout_height="80dip" >
+
+            <ImageView
+                android:layout_width="80dip"
+                android:layout_height="80dip"
+                android:src="@drawable/ic_scanner_malware" />
+
+            <ImageView
+                android:id="@+id/iv_scan"
+                android:layout_width="40dip"
+                android:layout_height="40dip"
+                android:src="@drawable/scan" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/scan_status"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Scan Status"
+                android:singleLine="true"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <ProgressBar
+                style="@style/my_progreebar_style"
+                android:id="@+id/progressBar1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="10dip" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/ll_container"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

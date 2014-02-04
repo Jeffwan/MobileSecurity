@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <ProgressBar
+            android:id="@+id/pb"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_scan_status"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Scan Status: "
+            android:textColor="#ff66ff" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_weight="1000"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+		<ScrollView
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent">
+			<LinearLayout
+	            android:id="@+id/ll_cache"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:orientation="vertical" >
+	        </LinearLayout>
+			</ScrollView>
+	        <LinearLayout
+	            android:id="@+id/loading"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:gravity="center"
+	            android:visibility="invisible" >
+	
+	            <ProgressBar
+	                style="@style/my_pb_style"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content" />
+	        </LinearLayout>
+
+	</FrameLayout>
+
+    <Button
+        android:onClick="cleanAll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Clean All Cache" />
+
+</LinearLayout>

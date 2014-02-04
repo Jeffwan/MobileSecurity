@@ -31,16 +31,25 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:layout_alignParentRight">true</item>
-        <item name="android:drawableRight">@drawable/next</item>  <!-- this is a picture from system? -->
+        <item name="android:drawableRight">@drawable/next</item> <!-- this is a picture from system? -->
         <item name="android:text">Next</item>
         <item name="android:onClick">next</item>
     </style>
 
     <style name="button_pre_style" parent="@style/button_next_style">
         <item name="android:layout_alignParentRight">false</item>
-        <item name="android:drawableRight">@null</item>  <!--what's this? because of parent,set null -->
+        <item name="android:drawableRight">@null</item> <!-- what's this? because of parent,set null -->
         <item name="android:drawableLeft">@drawable/previous</item>
         <item name="android:text">Previous</item>
         <item name="android:onClick">pre</item>
     </style>
+
+    <style name="my_pb_style" parent="@android:style/Widget.ProgressBar">
+        <item name="android:indeterminateDrawable">@drawable/progress_medium_white</item>
+    </style>
+
+    <style name="my_progreebar_style" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal</item>
+    </style>
+
 </resources>

@@ -22,5 +22,9 @@
     <string name="title_activity_traffic_manager">TrafficManagerActivity</string>
     <string name="title_activity_app_lock">AppLockActivity</string>
     <string name="title_activity_enter_password">EnterPasswordActivity</string>
+    <string name="title_activity_system_opt">SystemOptActivity</string>
+    <string name="title_activity_clean_cache">CleanCacheActivity</string>
+    <string name="title_activity_clean_sd">CleanSDActivity</string>
+    <string name="title_activity_anti_virus">AntiVirusActivity</string>
 
 </resources>

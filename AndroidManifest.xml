@@ -34,7 +34,9 @@
         android:targetPackage="edu.pitt.mobilesecurity" />
 
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
-    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
 
     <application
         android:allowBackup="true"
@@ -141,8 +143,7 @@
         </service>
         <service android:name="edu.pitt.mobilesecurity.service.AutoKillService" >
         </service>
-        <service android:name="edu.pitt.mobilesecurity.service.WatchDogService">
-            
+        <service android:name="edu.pitt.mobilesecurity.service.WatchDogService" >
         </service>
 
         <activity
@@ -168,8 +169,24 @@
         </activity>
         <activity
             android:name="edu.pitt.mobilesecurity.EnterPasswordActivity"
-            android:launchMode="singleInstance"
-            android:label="Please Input Password">
+            android:label="Please Input Password"
+            android:launchMode="singleInstance" >
+        </activity>
+        <activity
+            android:name="edu.pitt.mobilesecurity.SystemOptActivity"
+            android:label="@string/title_activity_system_opt" >
+        </activity>
+        <activity
+            android:name="edu.pitt.mobilesecurity.CleanCacheActivity"
+            android:label="@string/title_activity_clean_cache" >
+        </activity>
+        <activity
+            android:name="edu.pitt.mobilesecurity.CleanSDActivity"
+            android:label="@string/title_activity_clean_sd" >
+        </activity>
+        <activity
+            android:name="edu.pitt.mobilesecurity.AntiVirusActivity"
+            android:label="@string/title_activity_anti_virus" >
         </activity>
     </application>
 
