@@ -176,9 +176,28 @@ public class SplashActivity extends Activity {
 				public void run() {
 					File file = CopyAssetsFile.copyAssetsFile(SplashActivity.this, "address.db", addressDBFile.getAbsolutePath());
 					if (file!=null) {
-						Log.i(TAG, "Load successfully!");
+						Log.i(TAG, "AddressDB Load successfully!");
 					} else 
-						Log.i(TAG, "Load failed!");
+						Log.i(TAG, "AddressDB Load failed!");
+				};
+			}.start();
+		}
+		
+		
+		// Load Virus database -- antivirus
+		final File virusDBFile = new File(this.getFilesDir(), "antivirus.db");
+		if (virusDBFile.exists() && virusDBFile.length() > 0) {
+			Log.i(TAG, "Virus DB File loaded");
+		} else {
+			Log.i(TAG, "Load Virus DB File now!");
+			// use Thread to load this file
+			new Thread(){
+				public void run() {
+					File file = CopyAssetsFile.copyAssetsFile(SplashActivity.this, "antivirus.db", virusDBFile.getAbsolutePath());
+					if (file!=null) {
+						Log.i(TAG, "VirusDB Load successfully!");
+					} else 
+						Log.i(TAG, "VirusDB Load failed!");
 				};
 			}.start();
 		}

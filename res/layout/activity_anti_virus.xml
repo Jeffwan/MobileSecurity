@@ -42,7 +42,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/scan_status"
+                android:id="@+id/tv_scan_status"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
