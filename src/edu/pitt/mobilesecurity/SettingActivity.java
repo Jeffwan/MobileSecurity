@@ -126,8 +126,7 @@ public class SettingActivity extends Activity {
 			}
 		});
 		
-		
-		// 5. Initial system tasks show
+		// 5. Initial system tasks show -- used for concealing system tasks in systemTask module
 		sv_setting_show_system_task = (SettingView) findViewById(R.id.sv_setting_show_system_task);
 		boolean showSystem = mSharedPreferences.getBoolean("showSystem", true);
 		sv_setting_show_system_task.setChecked(showSystem);
@@ -146,7 +145,6 @@ public class SettingActivity extends Activity {
 				editor.commit();
 			}
 		});
-		
 		
 		// 6. Kill Task after lock screen
 		sv_setting_auto_kill = (SettingView) findViewById(R.id.sv_setting_auto_kill);
@@ -171,7 +169,6 @@ public class SettingActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				//TODO:ÔÚ·þÎñÀïÃæ¿ªÆô¹Ø±Õ ËøÆÁµÄ¹ã²¥½ÓÊÕÕß
 				if(sv_setting_applock.isChecked()){
 					sv_setting_applock.setChecked(false);
 					stopService(watchDogService);
@@ -181,8 +178,6 @@ public class SettingActivity extends Activity {
 				}
 			}
 		});
-		
-		
 	}
 	
 	
@@ -213,7 +208,6 @@ public class SettingActivity extends Activity {
 		
 		builder.show();
 	}
-
 
 	@Override
 	protected void onStart() {

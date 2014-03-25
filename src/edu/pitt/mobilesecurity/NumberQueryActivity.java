@@ -31,30 +31,30 @@ public class NumberQueryActivity extends Activity {
 		et_query_number = (EditText) findViewById(R.id.et_query_number);
 		tv_query_result = (TextView) findViewById(R.id.tv_query_result);
 		
-		vibrator = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
-		
-		et_query_number.addTextChangedListener(new TextWatcher() {
-			
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				String address = AddressDao.getAddress(s.toString().trim());
-				tv_query_result.setText(address);
-			}
-			
-			@Override
-			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
-					int arg3) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void afterTextChanged(Editable arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-		
+		// vibrator makes app exit unnormally, we don't use it here.
+//		vibrator = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
+//		
+//		et_query_number.addTextChangedListener(new TextWatcher() {
+//			
+//			@Override
+//			public void onTextChanged(CharSequence s, int start, int before, int count) {
+//				String address = AddressDao.getAddress(s.toString().trim());
+//				tv_query_result.setText(address);
+//			}
+//			
+//			@Override
+//			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+//					int arg3) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//			
+//			@Override
+//			public void afterTextChanged(Editable arg0) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//		});
 	}
 
 	public void query(View view) {

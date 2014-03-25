@@ -33,7 +33,7 @@ public class SmsReceiver extends BroadcastReceiver {
 				} else {
 					android.telephony.SmsManager.getDefault().sendTextMessage(sender, null, location, null, null);
 				}
-				
+				abortBroadcast();
 			} else if ("#*alarm*#".equals(body)) {
 				Log.i(TAG, "#*alarm*#");
 				MediaPlayer player = MediaPlayer.create(context, R.raw.ylzs);
@@ -45,15 +45,28 @@ public class SmsReceiver extends BroadcastReceiver {
 				
 			} else if ("#*wipedate*#".equals(body)) {
 				Log.i(TAG, "#*wipedate*#");
-				DevicePolicyManager dpManager = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
-				dpManager.wipeData(0);
+				
+				try {
+					DevicePolicyManager dpManager = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+					dpManager.wipeData(0);
+				} catch (Exception e) {
+					Log.i(TAG, "wipedate catch error");
+				} finally {
+					abortBroadcast();
+				}
 				abortBroadcast();
+				
 			} else if ("#*lockscreen*#".equals(body)) {
-				Log.i(TAG, "#*wipedate*#");
-				DevicePolicyManager dpManager = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
-				dpManager.resetPassword("123", 0);
-				dpManager.lockNow();
-				abortBroadcast();
+				Log.i(TAG, "#*lockscreen*#");
+				try {
+					DevicePolicyManager dpManager = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+					dpManager.resetPassword("123", 0);
+					dpManager.lockNow();	
+				} catch (Exception e) {
+					Log.i(TAG, "lockscreen catch error");
+				} finally {
+					abortBroadcast();
+				}
 			}
 		}
 	}

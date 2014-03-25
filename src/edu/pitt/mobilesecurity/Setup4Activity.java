@@ -34,6 +34,8 @@ public class Setup4Activity extends BaseSetupActivity {
 				// TODO Auto-generated method stub
 				Editor editor = mSharedPreferences.edit();
 				editor.putBoolean("protecting", isChecked);
+				// solve bug: prevent activity goes to setup1 again. at first, I miss this one.
+				editor.putBoolean("setup", isChecked);  
 				editor.commit();
 			}
 		});	

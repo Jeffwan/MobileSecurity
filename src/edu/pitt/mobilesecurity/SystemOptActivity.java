@@ -28,8 +28,5 @@ public class SystemOptActivity extends TabActivity {
 		tabHost.addTab(tab1);
 		tabHost.addTab(tab2);
 		
-		
 	}
-
-
 }

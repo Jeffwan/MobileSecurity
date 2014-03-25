@@ -66,8 +66,6 @@ public class ShowAddressService extends Service {
 		IntentFilter filter = new IntentFilter();
 		filter.addAction("android.intent.action.NEW_OUTGOING_CALL");
 		registerReceiver(outCallBroadcastReceiver, filter);
-		
-		
 	}
 	
 
@@ -87,8 +85,6 @@ public class ShowAddressService extends Service {
 					view = null;
 				}
 				break;
-			default:
-				break;
 			}
 			super.onCallStateChanged(state, incomingNumber);
 		}
@@ -99,11 +95,11 @@ public class ShowAddressService extends Service {
 		// 1. Unregister incoming listener when service is destroyed
 		mTelephonyManager.listen(listener, PhoneStateListener.LISTEN_NONE);
 		listener = null;
+		super.onDestroy();
 		
 		// 2. Unregister outgoing listener
 		unregisterReceiver(outCallBroadcastReceiver);
 		outCallBroadcastReceiver = null;
-		super.onDestroy();
 	}
 	
 

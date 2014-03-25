@@ -49,15 +49,13 @@ public class CallSmsFirewallService extends Service {
 		comeSmsReceiver = new ComeSmsReceiver();
 		IntentFilter filter = new IntentFilter();
 		filter.addAction("android.provider.Telephony.SMS_RECEIVED");
-		filter.setPriority(1000);
+		filter.setPriority(2000);
 		this.registerReceiver(comeSmsReceiver, filter);
-		
 		
 		// 2. register phone block Listener
 		phoneListener = new PhoneListener();
 		mTelephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
 		mTelephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
-		
 		
 		// TODO Auto-generated method stub
 		super.onCreate();
@@ -69,24 +67,17 @@ public class CallSmsFirewallService extends Service {
 		public void onReceive(Context context, Intent intent) {
 			Object[] objs = (Object[]) intent.getExtras().get("pdus");
 			for(Object obj : objs) {
-				Log.i(TAG, "message comming!");
 				SmsMessage smsMessage = SmsMessage.createFromPdu((byte[]) obj);
 				String sender = smsMessage.getOriginatingAddress();
 				String body = smsMessage.getMessageBody();
-				
-				if (body.contains("sex")) {
-					Log.i(TAG, "rubbish message, abort!");
-					abortBroadcast();
-				}
-				
+				Log.i(TAG, "message is comming from " + sender);
+								
 				String blockMode = dao.findMode(sender);
 				if ("1".equals(blockMode) || "3".equals(blockMode)) {
 					Log.i(TAG, "Msg From blackNumber List, abort!");
 					abortBroadcast();
 				}
-				
 			}
-			
 		}		
 	}
 	
@@ -194,7 +185,6 @@ public class CallSmsFirewallService extends Service {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 	
 	

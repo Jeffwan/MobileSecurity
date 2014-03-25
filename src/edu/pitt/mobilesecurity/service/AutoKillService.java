@@ -30,14 +30,12 @@ public class AutoKillService extends Service {
 		filter.addAction(Intent.ACTION_SCREEN_OFF);
 		registerReceiver(receiver, filter);
 		super.onCreate();
-		super.onCreate();
 	}
 	
 	@Override
 	public void onDestroy() {
 		unregisterReceiver(receiver);
 		receiver = null;
-		super.onDestroy();
 		super.onDestroy();
 	}
 	

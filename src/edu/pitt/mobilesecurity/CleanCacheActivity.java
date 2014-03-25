@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -22,14 +23,17 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.text.format.Formatter;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CleanCacheActivity extends Activity {
 
+	private static final String TAG = "CleanCacheActivity";
 	private View loading;
 	private PackageManager pm;
 	private ProgressBar pb;
@@ -151,7 +155,6 @@ public class CleanCacheActivity extends Activity {
 				intent.putExtra("packageName", packageName);
 				intent.putExtra("cache", cache);
 				sendBroadcast(intent);
-				
 			}
 		}
 		
@@ -213,12 +216,17 @@ public class CleanCacheActivity extends Activity {
 			}
 		}
 		
-		// invoke, first parameter should be large enought
+		// invoke, first parameter should be large enough
 		try {
 			deleteAllMethod.invoke(pm, new Object[]{Long.MAX_VALUE,new ClearCacheObserver()});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		Toast.makeText(getApplicationContext(), "Cleanup!", 1).show();
+		Intent intent = new Intent(this, CleanCacheActivity.class);
+		startActivity(intent);
+		finish();
 	}
 	
 	
@@ -227,8 +235,7 @@ public class CleanCacheActivity extends Activity {
 		@Override
 		public void onRemoveCompleted(String packageName, boolean succeeded)
 				throws RemoteException {
-			System.out.println("result:"+succeeded);
-			
+			Log.i(TAG, "result:"+succeeded);
 		}
 	}
 	

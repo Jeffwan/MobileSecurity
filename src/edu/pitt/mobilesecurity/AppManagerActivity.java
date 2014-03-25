@@ -139,7 +139,6 @@ public class AppManagerActivity extends Activity implements OnClickListener {
 			
 		});
 		
-		
 		loadAppData();
 	}
 
@@ -385,9 +384,11 @@ public class AppManagerActivity extends Activity implements OnClickListener {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-			dismissPopUpWindow();
-			// prevent the normal event
-			return true;
+			if(popupWindow != null && popupWindow.isShowing()) {
+				dismissPopUpWindow();
+				// prevent the normal event
+				return true;
+			}
 		}
 		return super.onKeyDown(keyCode, event);
 	}
